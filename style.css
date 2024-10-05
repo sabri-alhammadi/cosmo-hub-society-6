@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: "Poppins", sans-serif;
+    background-color: #010101;
+    color: #eee;
+}
+
+
+        /* header */
+
+header{
+    width: 1200px;
+    max-width: 10%;
+    margin: auto;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: 50px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 90;
+    
+}
+img{
+    height: 190px;
+    justify-content: flex-start;
+}
+/*
+.logo{
+    font-weight: bold;
+    font-size: 20px;
+    justify-content:left;
+
+   
+}*/
+
+i {
+    font-size: 20px;
+
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.nav li{
+    position: relative;
+}
+.nav a{
+    white-space: nowrap;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;   
+    transition: color 0.3s ease;
+    text-decoration: none;
+
+
+}
+.nav li:hover a{
+    color: #18111d;
+}
+.nav-link::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 5px;
+    left:50%;
+    transform: translateX(-50%);
+    background-color: #18111d;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out 0s;
+
+}
+.nav-link:hover:before{
+    visibility: visible;
+    width: 100%;
+}
+/*
+.menu{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-weight: 500;
+ 
+}
+*/
+/* css slider */
+.slider{
+    height: 100vh;
+    margin-top: -60px;
+    position: relative;
+}
+
+.item{
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+
+.item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+        to top, #000 10%, transparent
+    );
+}
+
+.item .content{
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    width: 500px;
+    max-width: 80%;
+    z-index: 1;
+}
+
+.item .content p:nth-child(1){
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+.item .content h2{
+    font-size: 100px;
+    margin: 0;
+}
+
+.item.active{
+    opacity: 1;
+    z-index: 10;
+}
+
+@keyframes showContent {
+    to{
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.item.active p:nth-child(1),
+.item.active h2,
+.item.active p:nth-child(3) {
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .4s .6s ease-in-out forwards;
+}
+
+.item.active h2 {
+    animation-delay: 1s;
+}
+
+.item.active p:nth-child(3) {
+    animation-delay: 1.3s;
+}
+
+.arrows {
+    position: absolute;
+    top: 30%;
+    right: 50px;
+    z-index: 100;
+}
+
+.arrows button {
+    background-color: #eee5;
+    border: none;
+    font-family: monospace;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: #eee;
+    transition: .2s ease-in;
+}
+
+.arrows button:hover {
+    background-color: #eee;
+    color: black;
+}
+
+.thumbnail{
+    position: absolute;
+    bottom: -40px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: auto;
+    justify-content: center;
+}
+
+.thumbnail::-webkit-scrollbar{
+    width: 0;
+}
+
+.slide{
+    width: 150px;
+    height: 220px;
+    filter: brightness(.5);
+    transition: .5s;
+    flex-shrink: 0;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.slide.active{
+    filter: brightness(1.5);
+}
+
+.slide .content{
+    position: absolute;
+    inset: auto 10px 10px 10px;
+}
+
+@media screen and (max-width: 678px) {
+    .thumbnail{
+        justify-content: start;
+    }
+    .item .content h2{
+        font-size: 60px;
+    }
+    .arrows{
+        top: 10%;
+    }
+}
+
+/*About project*/
+
+.about{
+    width:100%;
+    padding:78px 0px;
+    background-color: #151515;
+    margin-bottom: 640px;
+
+}
+.about img{
+    height: auto;
+    width: 450px;
+
+}
+.img2 img{
+    height: 450px;
+    justify-content: flex-start;
+}
+.about-text{
+    width: 550px;
+
+}
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.about-text h1{
+    color: white;
+    font-size: 60px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    
+}
+.about-text h5{
+    color: white;
+    font-size: 25px;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    
+}
+span{
+    color: #6b2323;
+}
+
+.about-text p{
+    color: #fcfcfc;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size:18px;
+    margin-bottom: 45px;
+}
+button{
+    background: #6b2323;
+    color:white;
+    text-decoration: none;
+    border:2px solid transparent;
+    font-weight: bold;
+    padding:13px 30px;
+    border-radius: 30px;
+    transition: .4s;
+    bottom: -45px;
+
+}
+button:hover{
+    background: transparent;
+    border: 2px solid #6b2323 ;
+    cursor: pointer;
+
+}
+.Experiences {
+    text-align: center; 
+    background-color: rgb(0, 0, 0);
+
+ }
+ .Experiences h2 {
+     padding-top: 30px;
+     font-family: "Montserrat", sans-serif;
+     color:rgb(74, 35, 35);
+ }
+ .Experiences p {
+     font-family: "Montserrat", sans-serif;
+     font-size: 22px;
+      margin-bottom: 40px;
+ }
+ .expertises {
+     display: flex;
+     padding-bottom: 20px;
+ 
+ }
+ .expertise {
+ font-family: "Montserrat", sans-serif;
+ background-color: rgb(29, 29, 30);
+ border-radius: 15px;
+ padding: 20px;
+ margin:10px ;
+ width: 30%;
+ border: 1px solid rgb(125, 125, 125);
+ transition: 0.5s ease ;
+ box-shadow: 0 4px 4px rgb(27, 31, 69) ;
+ justify-content:center;
+
+
+ }
+ .expertise:hover {
+    
+     transform: scale(1.1);
+     background-color: rgb(64, 66, 67);
+    box-shadow: 0 4px 4px rgb(27, 31, 69) ;
+ }
+ .expertise p {
+     font-size: 18px;
+ }
+ .expertise i {
+     color:rgb(27, 31, 69) ;
+     font-size: 30px;
+ }
+ /*the first of contact*/
+/*
+ .contact {
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    padding-bottom: 50px;
+}
+.contact h2{
+    padding-top: 30px;
+    font-family: "Montserrat", sans-serif;
+    color:#6b2323;
+}
+.contact p{
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.contentme {
+    width: 40%;
+    background-color: rgb(29, 29, 30);
+    ;
+    margin: 20px auto;
+    border: 1px solid rgb(156, 154, 154);
+    border-radius: 10px;
+    padding: 30px;
+    
+}
+.forminput input{
+ width: 50%; 
+ height: 20px;  
+ margin-bottom: 20px;
+ border-radius: 5px;
+ border: 1px solid rgb(35, 31, 49);;
+}
+.forminput textarea {
+ width: 50%;  
+ margin-bottom: 20px;
+ border-radius: 5px;
+ border: 1px solid rgb(66, 25, 25);;
+}
+.send{
+ padding:  10px 20px; 
+ background-color: rgb(0, 0, 0);
+ color:aliceblue ; 
+ border-radius: 10px; 
+ border: none;
+ cursor: pointer;
+ transition: 0.5s ease;
+}
+.send:hover:hover {
+    background-color: rgb(234, 108, 120);
+    transform: scale(1.1);
+}
+*/
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Peta&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lexend Peta', sans-serif;
+    box-sizing: border-box;
+}
+.contact{
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url(bg.jpg);
+    background-size: cover;
+}
+.contact .content{
+    max-width: 800px;
+    text-align: center;
+}
+.contact .content h2{
+    font-size: 36px;
+    font-weight: 500;
+    color: #ff0000;
+    margin-bottom: 20px;
+}
+.contact .content p{
+    font-weight: 300;
+    color: #ffff;
+}
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.container .contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.container .contactInfo .box{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+.container .contactInfo .box .icon{
+    min-width: 60px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+}
+.container .contactInfo .box .text h3{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: rgb(217, 255, 0);
+    /* flex-direction: column; */
+    font-weight: 500;
+}
+.container .contactInfo .box .text p{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    /* flex-direction: column; */
+    font-weight: 300;
+}
+.contactForm{
+    width: 40%;
+    padding: 40px;
+    background: #fff;
+
+}
+.contactForm h2{
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+.contactForm .inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.contactForm .inputBox input,
+.contactForm .inputBox textarea{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+}
+.contactForm .inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+}
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:valid ~ span{
+    color: #ff0000;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+.contactForm .inputBox input[type="submit"]{
+    width: 100px;
+    background: #00bcd4;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+}
